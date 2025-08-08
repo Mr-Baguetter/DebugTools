@@ -37,7 +37,10 @@ namespace DebugTools.API.Features.Components
         public void Update()
         {
             if (Player is null)
+            {
+                Destroy();
                 return;
+            }
 
             Text.Clear();
             Text.AppendLine($"<size=20><b><color=blue>{Plugin.Instance.Name}</color> <color=yellow>v{Plugin.Instance.Version}</color> <color=red>Debug Menu</color></b></size>");
