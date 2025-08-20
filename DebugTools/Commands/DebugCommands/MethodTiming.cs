@@ -35,7 +35,7 @@ namespace DebugTools.Commands.Debug
                 case "status":
                     return HandleList(out response);
 
-                case "unpackall":
+                case "unpatchall":
                 case "clear":
                 case "stop":
                     return HandleUnpatchAll(out response);
