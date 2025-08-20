@@ -30,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -48,9 +49,9 @@
       <HintPath>..\..\..\..\Downloads\Release\Assembly-CSharp-Publicized.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Assembly-CSharp-firstpass-Publicized, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>$(EXILED_REFERENCES)\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>$(EXILED_REFERENCES)\Assembly-CSharp-firstpass-Publicized.dll</HintPath>
     </Reference>
     <Reference Include="AudioPlayerApi">
       <HintPath>$(EXILED_REFERENCES)\AudioPlayerApi.dll</HintPath>
@@ -462,11 +463,18 @@
     <Compile Include="API\Extensions\RoomExtensions.cs" />
     <Compile Include="API\Interfaces\ISubcommand.cs" />
     <Compile Include="Commands\DebugCommandBase.cs" />
-    <Compile Include="Commands\Debug\DebugUI.cs" />
-    <Compile Include="Commands\Debug\SendRayCast.cs" />
+    <Compile Include="Commands\DebugCommands\DebugUI.cs" />
+    <Compile Include="Commands\DebugCommands\MethodTiming.cs" />
+    <Compile Include="Commands\DebugCommands\SendRayCast.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Harmony\Patches\MethodTimer.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Northwood.LabAPI">
+      <Version>1.1.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup />
   <Target Name="PostBuildCopyLabApiDll" AfterTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">

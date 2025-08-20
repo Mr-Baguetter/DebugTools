@@ -23,6 +23,7 @@ namespace DebugTools.Commands
         public override void LoadGeneratedCommands()
         {
             Subcommands.Add(new SendRayCast());
+            Subcommands.Add(new MethodTiming());
             Subcommands.Add(new DebugUI());
         }
 
